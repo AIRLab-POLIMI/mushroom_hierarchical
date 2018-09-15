@@ -1,0 +1,6 @@
+numpy>=1.11
+networkx
+matplotlib
+joblib
+tqdm
+pygame
