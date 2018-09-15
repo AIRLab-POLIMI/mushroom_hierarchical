@@ -9,10 +9,7 @@ mk_dir_recursive(output_dir)
 output_dir = ''
 
 algs = ['H_GPOMDP_PGPE',
-        'ghavamzadeh',
-        'ghavamzadeh_99',
-        'ghavamzadeh_1'
-        ]
+        'ghavamzadeh']
 
 colors = ['b', 'r', 'g', 'c', 'm']
 
