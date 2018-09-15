@@ -6,7 +6,8 @@ base_dir = '../results/prey_predator'
 output_dir = '../out/prey_predator'
 mk_dir_recursive(output_dir)
 
-algs = ['H_DQN_GPOMDP']
+algs = ['B_GPOMDP',
+        'H_DQN_GPOMDP']
 
 colors = ['b', 'r', 'g', 'c', 'm']
 

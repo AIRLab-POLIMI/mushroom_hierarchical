@@ -143,7 +143,7 @@ def baseline_experiment(mdp, agent,
     J_list.append(np.mean(J))
     J_low_list = list()
     L = episodes_length(dataset)
-    L_list.append(L)
+    L_list.append(np.mean(L))
     if print_j:
         print('Reward at start :', J_list[-1])
 
