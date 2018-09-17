@@ -13,6 +13,7 @@ colors = ['b', 'r', 'g', 'c', 'm']
 
 J_results = dict()
 L_results = dict()
+Jlow_results = dict()
 
 for alg in algs:
     # J
@@ -24,11 +25,18 @@ for alg in algs:
     L = np.load(base_dir + '/L_' + alg + '.npy')
     print(alg, ' L: ', L.shape)
     L_results[alg] = get_mean_and_confidence(L)
+    
+    # Jlow
+    Jlow = np.load(base_dir + '/Jlow_' + alg + '.npy')
+    print(alg, ' Jlow: ', Jlow.shape)
+    Jlow_results[alg] = get_mean_and_confidence(Jlow)
 
 create_plot(algs, colors, J_results, 'J', legend=True,
             output_dir=output_dir, plot_name='J')
 create_plot(algs, colors, L_results, 'L', legend=False,
             output_dir=output_dir, plot_name='L')
+create_plot(algs, colors, Jlow_results, 'Jlow', legend=False,
+            output_dir=output_dir, plot_name='Jlow')
 
 plt.show()
 
