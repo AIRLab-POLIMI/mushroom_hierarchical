@@ -6,7 +6,6 @@ from common import *
 base_dir = '../results/ship_steering_big'
 output_dir = '../out/ship_steering_big'
 mk_dir_recursive(output_dir)
-output_dir = ''
 
 algs = ['H_GPOMDP_PGPE',
         'ghavamzadeh']
