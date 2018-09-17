@@ -17,7 +17,7 @@ def get_mean_and_confidence(data):
 def create_plot(algs, colors, dictionary, y_label, legend=False,
                 x_label='epoch', logarithmic=False, output_dir='',
                 plot_name='figure'):
-    plt.figure()
+    f = plt.figure()
 
     if logarithmic:
         plt.yscale('symlog')
@@ -37,3 +37,5 @@ def create_plot(algs, colors, dictionary, y_label, legend=False,
         tikz_save(output_dir + '/' + plot_name + '.tex',
                   figureheight='\\figureheight',
                   figurewidth='\\figurewidth')
+
+        f.savefig(output_dir + '/' + plot_name + '.png')
