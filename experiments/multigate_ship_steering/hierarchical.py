@@ -8,8 +8,7 @@ from mushroom.utils.dataset import compute_J
 from mushroom.utils import spaces
 from mushroom.features.features import *
 from mushroom.features.basis import PolynomialBasis
-from mushroom.utils.parameters import AdaptiveParameter, Parameter
-
+from mushroom.utils.parameters import Parameter
 
 from mushroom_hierarchical.core.hierarchical_core import HierarchicalCore
 from mushroom_hierarchical.blocks.computational_graph import ComputationalGraph
@@ -56,9 +55,9 @@ class MidReward(object):
         gate_state = state[self.gate_no+4]
 
         if gate_state > self.gate_state_old:
-            reward = 100
+            reward = 1
         else:
-            reward = -1
+            reward = 0
 
         self.gate_state_old = gate_state
 
@@ -80,8 +79,8 @@ class TerminationCondition(object):
             self.gate_state_old = gate_state
             return False
 
-class TerminationConditionLow(object):
 
+class TerminationConditionLow(object):
     def __init__(self, small):
         self.small = small
 
@@ -99,8 +98,9 @@ class TerminationConditionLow(object):
         else:
             return False
 
+
 def build_high_level_agent(alg, params, mdp, epsilon):
-    pi = EpsGreedy(epsilon=epsilon, )
+    pi = EpsGreedy(epsilon=epsilon)
     mdp_info_high = MDPInfo(observation_space=spaces.Discrete(16),
                             action_space=spaces.Discrete(4),
                             gamma=mdp.info.gamma,
@@ -186,25 +186,30 @@ def build_computational_graph(mdp, agent_low, agent_m0,
     control_block_h = ControlBlock(name='Control Block H', agent=agent_high,
                                    n_steps_per_fit=1)
     # Cotrol Block M1
-    termination_condition_m1 = TerminationCondition(gate_no=0)
+    termination_cond_m0 = TerminationCondition(gate_no=0)
     control_block_m0 = ControlBlock(name='Control Block M0', agent=agent_m0,
-                                    n_eps_per_fit=ep_per_fit_mid, termination_condition=termination_condition_m1)
+                                    n_eps_per_fit=ep_per_fit_mid,
+                                    termination_condition=termination_cond_m0)
     # Cotrol Block M2
-    termination_condition_m2 = TerminationCondition(gate_no=1)
+    termination_cond_m1 = TerminationCondition(gate_no=1)
     control_block_m1 = ControlBlock(name='Control Block M1', agent=agent_m1,
-                                    n_eps_per_fit=ep_per_fit_mid, termination_condition=termination_condition_m2)
+                                    n_eps_per_fit=ep_per_fit_mid,
+                                    termination_condition=termination_cond_m1)
     # Cotrol Block M3
-    termination_condition_m3 = TerminationCondition(gate_no=2)
+    termination_cond_m2 = TerminationCondition(gate_no=2)
     control_block_m2 = ControlBlock(name='Control Block M2', agent=agent_m2,
-                                    n_eps_per_fit=ep_per_fit_mid, termination_condition=termination_condition_m3)
+                                    n_eps_per_fit=ep_per_fit_mid,
+                                    termination_condition=termination_cond_m2)
     # Cotrol Block M4
-    termination_condition_m4 = TerminationCondition(gate_no=3)
+    termination_cond_m3 = TerminationCondition(gate_no=3)
     control_block_m3 = ControlBlock(name='Control Block M3', agent=agent_m3,
-                                    n_eps_per_fit=ep_per_fit_mid, termination_condition=termination_condition_m4)
+                                    n_eps_per_fit=ep_per_fit_mid,
+                                    termination_condition=termination_cond_m3)
     # Control Block L
     termination_condition_low = TerminationConditionLow(mdp.small)
     control_block_l = ControlBlock(name='Control Block L', agent=agent_low,
-                                   n_eps_per_fit=ep_per_fit_low, termination_condition=termination_condition_low)
+                                   n_eps_per_fit=ep_per_fit_low,
+                                   termination_condition=termination_condition_low)
     # Selector Block
     mux_block = MuxBlock(name='Mux Block')
     mux_block.add_block_list([control_block_m0])
@@ -298,15 +303,24 @@ def hierarchical_experiment(mdp, agent_l, agent_m1,
                             agent_m2, agent_m3, agent_m4,
                             agent_h, n_epochs,
                             n_iterations, ep_per_epoch_train,
-                            ep_per_epoch_eval, ep_per_fit_low, ep_per_fit_mid):
+                            ep_per_epoch_eval, ep_per_fit_low,
+                            ep_per_fit_mid, mask_high_epochs):
     np.random.seed()
 
-    computational_graph, control_block_h = build_computational_graph(mdp, agent_l, agent_m1,
-                                                    agent_m2, agent_m3, agent_m4,
-                                                    agent_h,
-                                                    ep_per_fit_low, ep_per_fit_mid)
+    computational_graph, control_block_h = \
+        build_computational_graph(mdp, agent_l,
+                                  agent_m1, agent_m2,
+                                  agent_m3, agent_m4,
+                                  agent_h, ep_per_fit_low, ep_per_fit_mid)
 
     core = HierarchicalCore(computational_graph)
+
+    #TODO fix this stuff in mushroom...
+    old_epsilon = agent_h.policy._epsilon
+    new_epsilon = Parameter(1.0)
+    agent_h.policy.set_epsilon(new_epsilon)
+
+    control_block_h.set_mask()
     J_list = list()
     dataset = core.evaluate(n_episodes=ep_per_epoch_eval, quiet=True)
     J = compute_J(dataset, gamma=mdp.info.gamma)
@@ -314,27 +328,34 @@ def hierarchical_experiment(mdp, agent_l, agent_m1,
     print('J at start: ', np.mean(J))
     print('Mean gates passed: ', count_gates(dataset))
 
-
     for n in range(n_epochs):
-
-        curr_learning_rate = agent_h.alpha
-
-        agent_h.alpha = Parameter(value=0.0)
+        if n > mask_high_epochs:
+            control_block_h.unset_mask()
+            print('Start learning High level')
+            agent_h.policy.set_epsilon(old_epsilon)  #TODO see above
         core.learn(n_episodes=n_iterations * ep_per_epoch_train, skip=True,
                    quiet=False)
-        dataset = core.evaluate(n_episodes=ep_per_epoch_eval, quiet=True, render=True)
+        dataset = core.evaluate(n_episodes=ep_per_epoch_eval, quiet=False)
+
         J = compute_J(dataset, gamma=mdp.info.gamma)
         J_list.append(np.mean(J))
         print('J at iteration ', n, ': ', np.mean(J))
         print('Mean gates passed: ', count_gates(dataset))
 
-        print('Policy Parameters M1', agent_m1.policy.get_weights())
-        print('Policy Parameters M2', agent_m2.policy.get_weights())
-        print('Policy Parameters M3', agent_m3.policy.get_weights())
-        print('Policy Parameters M4', agent_m4.policy.get_weights())
+        print('Policy Parameters M1', agent_m1.policy.get_weights(),
+              '[100, 175]')
+        print('Policy Parameters M2', agent_m2.policy.get_weights(),
+              '[175, 300]')
+        print('Policy Parameters M3', agent_m3.policy.get_weights(),
+              '[275, 350]')
+        print('Policy Parameters M4', agent_m4.policy.get_weights(),
+              '[175, 425]')
 
-        agent_h.alpha = curr_learning_rate
-
+        if n % 5 == 0:
+            print('Eps: ', agent_h.policy._epsilon.get_value())
+            print('Q:')
+            print(agent_h.Q.table)
+            core.evaluate(n_episodes=3, quiet=True, render=True)
 
     return J_list
 
