@@ -329,7 +329,7 @@ def hierarchical_experiment(mdp, agent_l, agent_m1,
     print('Mean gates passed: ', count_gates(dataset))
 
     for n in range(n_epochs):
-        if n > mask_high_epochs:
+        if n == mask_high_epochs:
             control_block_h.unset_mask()
             print('Start learning High level')
             agent_h.policy.set_epsilon(old_epsilon)  #TODO see above
