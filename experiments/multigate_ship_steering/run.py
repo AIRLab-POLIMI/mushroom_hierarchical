@@ -41,8 +41,8 @@ if __name__ == '__main__':
     # Hierarchical
     algs_and_params_hier = [
         (QLearning, {'learning_rate': Parameter(value=0.5)},
-        GPOMDP, {'learning_rate': AdaptiveParameter(value=20) if mdp.small else AdaptiveParameter(value=50)},
-        PGPE, {'learning_rate': AdaptiveParameter(value=5e-4)})
+         GPOMDP, {'learning_rate': AdaptiveParameter(value=20) if mdp.small else AdaptiveParameter(value=50)},
+         PGPE, {'learning_rate': AdaptiveParameter(value=5e-4)})
          ]
 
     for alg_h, params_h, alg_m, params_m, alg_l, params_l \
@@ -52,8 +52,8 @@ if __name__ == '__main__':
 
         mu = 250 if mdp.small else 500
         sigma = 125 if mdp.small else 250
+        agent_m0 = build_mid_level_agent(alg_m, params_m, mdp, mu, sigma)
         agent_m1 = build_mid_level_agent(alg_m, params_m, mdp, mu, sigma)
-        agent_m2 = build_mid_level_agent(alg_m, params_m, mdp, mu, sigma)
         agent_m3 = build_mid_level_agent(alg_m, params_m, mdp, mu, sigma)
         agent_m4 = build_mid_level_agent(alg_m, params_m, mdp, mu, sigma)
 
@@ -64,8 +64,9 @@ if __name__ == '__main__':
         print('High: ', alg_h.__name__, ' Medium: ', alg_m.__name__ ,
               ' Low: ', alg_l.__name__)
         J = Parallel(n_jobs=n_jobs)(delayed(hierarchical_experiment)
-                                    (mdp, agent_l, agent_m1,
-                                     agent_m2, agent_m3, agent_m4,
+                                    (mdp, agent_l,
+                                     agent_m0, agent_m1,
+                                     agent_m3, agent_m4,
                                      agent_h, n_epochs,
                                      n_iterations, ep_per_epoch_train,
                                      ep_per_epoch_eval, ep_per_fit_low,
