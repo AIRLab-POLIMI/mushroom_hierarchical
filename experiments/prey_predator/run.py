@@ -23,7 +23,7 @@ if __name__ == '__main__':
     n_jobs = -1
     verb = 10
 
-    how_many = 1
+    how_many = 100
     n_epochs = 50
     ep_per_epoch = 1000
     ep_per_eval = 500
@@ -31,7 +31,7 @@ if __name__ == '__main__':
     ep_per_fit_low = 10
 
     n_features = 300
-    use_cuda = True
+    use_cuda = False
     display = False
     print_j = False
     quiet = True
@@ -47,7 +47,7 @@ if __name__ == '__main__':
     force_symlink('./' + subdir, name + '_latest')
 
     # COMMON
-    std_low = 1e-1 * np.ones(2)
+    std_low = 2.5e-1 * np.ones(2)
     horizon = 10
 
     p_value_gpomdp = 2e-4
@@ -81,9 +81,9 @@ if __name__ == '__main__':
         np.save(subdir + '/Jlow_B_' + alg.__name__, Jlow)
 
     # DQN discretized
-    optimizer_disc = {'class': optim.RMSprop,
-                 'params': {'lr': 1e-3,
-                            'centered': True}}
+    '''optimizer_disc = {'class': optim.RMSprop,
+                      'params': {'lr': 1e-3,
+                                 'centered': True}}
     eps_disc = ExponentialDecayParameter(1, -0.2)
 
     p_dqn_d = dict(
@@ -167,4 +167,4 @@ if __name__ == '__main__':
         np.save(subdir + '/J_H_' + alg_h.__name__ + '_' + alg_l.__name__, J)
         np.save(subdir + '/L_H_' + alg_h.__name__ + '_' + alg_l.__name__, L)
         np.save(subdir + '/Jlow_H_' + alg_h.__name__ + '_' + alg_l.__name__,
-                Jlow)
+                Jlow)'''

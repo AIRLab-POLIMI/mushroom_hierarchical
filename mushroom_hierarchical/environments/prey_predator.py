@@ -15,8 +15,8 @@ class PreyPredator(Environment):
         self._rotation_radius = 0.6
         self._catch_radius = 0.4
 
-        self._v_prey = 0.13
-        self._v_predator = 0.1
+        self._v_prey = 1.3
+        self._v_predator = 1.0
         self._dt = 0.1
 
         self._omega_prey = self._v_prey / self._rotation_radius
@@ -256,7 +256,7 @@ class PreyPredator(Environment):
         delta[1] = np.sin(state[2]) * u[0]
         delta[2] = u[1]
 
-        new_state = state + delta
+        new_state = state + delta*self._dt
 
         collision, _ = self._check_collision(state[:2], new_state[:2])
 
