@@ -154,7 +154,7 @@ if __name__ == '__main__':
         print('High: ', alg_h.__name__, ' Low: ', alg_l.__name__)
         print('lr: ', p_gpomdp['learning_rate'].__class__.__name__,
               p_value_gpomdp)
-        res = Parallel(n_jobs=n_jobs)(delayed(experiment)
+        res = Parallel(n_jobs=n_jobs, verbose=verb)(delayed(experiment)
                                       (mdp, agent_h, agent_l,
                                        n_epochs,
                                        ep_per_epoch,
