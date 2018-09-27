@@ -23,7 +23,7 @@ if __name__ == '__main__':
     n_jobs = -1
     verb = 10
 
-    how_many = 100
+    how_many = 25
     n_epochs = 50
     ep_per_epoch = 1000
     ep_per_eval = 500
@@ -31,7 +31,7 @@ if __name__ == '__main__':
     ep_per_fit_low = 10
 
     n_features = 300
-    use_cuda = False
+    use_cuda = True
     display = False
     print_j = False
     quiet = True
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     )
 
     # BASELINE
-    algs_and_params_baseline = [
+    '''algs_and_params_baseline = [
         (GPOMDP, p_gpomdp)
     ]
 
@@ -81,7 +81,7 @@ if __name__ == '__main__':
         np.save(subdir + '/Jlow_B_' + alg.__name__, Jlow)
 
     # DQN discretized
-    '''optimizer_disc = {'class': optim.RMSprop,
+    optimizer_disc = {'class': optim.RMSprop,
                       'params': {'lr': 1e-3,
                                  'centered': True}}
     eps_disc = ExponentialDecayParameter(1, -0.2)
@@ -121,7 +121,7 @@ if __name__ == '__main__':
 
         J, L = parse_joblib(res)
         np.save(subdir + '/J_D_' + alg.__name__, J)
-        np.save(subdir + '/L_D_' + alg.__name__, L)
+        np.save(subdir + '/L_D_' + alg.__name__, L)'''
 
 
     # HIERARCHICAL
@@ -167,4 +167,4 @@ if __name__ == '__main__':
         np.save(subdir + '/J_H_' + alg_h.__name__ + '_' + alg_l.__name__, J)
         np.save(subdir + '/L_H_' + alg_h.__name__ + '_' + alg_l.__name__, L)
         np.save(subdir + '/Jlow_H_' + alg_h.__name__ + '_' + alg_l.__name__,
-                Jlow)'''
+                Jlow)
