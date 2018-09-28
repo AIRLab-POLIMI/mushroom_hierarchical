@@ -2,14 +2,13 @@ from mushroom.environments import MDPInfo
 from mushroom.features.features import *
 from mushroom.features.basis import *
 from mushroom.policy.gaussian_policy import *
-from mushroom.policy.td_policy import EpsGreedy, Boltzmann
+from mushroom.policy.td_policy import Boltzmann
 from mushroom.approximators.parametric import LinearApproximator, PyTorchApproximator
 from mushroom.approximators.regressor import Regressor
 from mushroom.utils.callbacks import CollectDataset
 from mushroom.utils.dataset import compute_J, episodes_length
 from mushroom.utils import spaces
 from mushroom.utils.angles import *
-
 
 from mushroom_hierarchical.core.hierarchical_core import HierarchicalCore
 from mushroom_hierarchical.blocks.computational_graph import ComputationalGraph
@@ -169,7 +168,7 @@ def build_computational_graph(mdp, agent_low, agent_high,
               control_block_h, control_block_l,
               function_block1, function_block2,
               function_block3, function_block4,
-              reward_acc]
+              reward_acc, hold_block]
 
     state_ph.add_input(control_block_l)
     reward_ph.add_input(control_block_l)

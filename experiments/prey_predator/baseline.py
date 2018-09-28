@@ -2,8 +2,7 @@ from mushroom.environments import MDPInfo
 from mushroom.features.features import *
 from mushroom.features.basis import *
 from mushroom.policy.gaussian_policy import *
-from mushroom.policy.td_policy import EpsGreedy, Boltzmann
-from mushroom.approximators.parametric import LinearApproximator, PyTorchApproximator
+from mushroom.approximators.parametric import LinearApproximator
 from mushroom.approximators.regressor import Regressor
 from mushroom.utils.callbacks import CollectDataset
 from mushroom.utils.dataset import compute_J, episodes_length
@@ -17,9 +16,6 @@ from mushroom_hierarchical.blocks.control_block import ControlBlock
 from mushroom_hierarchical.blocks.basic_operation_block import *
 from mushroom_hierarchical.blocks.model_placeholder import PlaceHolder
 from mushroom_hierarchical.blocks.reward_accumulator import *
-from mushroom_hierarchical.blocks.hold_state import hold_state
-
-from network import Network
 
 
 def reward_low_level(ins):
