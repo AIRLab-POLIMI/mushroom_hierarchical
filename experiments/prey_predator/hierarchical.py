@@ -63,7 +63,6 @@ def polar_error(ins):
     rho = np.linalg.norm(delta_pos)
     theta_ref = np.arctan2(delta_pos[1], delta_pos[0])
 
-
     delta_theta = shortest_angular_distance(from_angle=state[2],
                                             to_angle=theta_ref)
 
