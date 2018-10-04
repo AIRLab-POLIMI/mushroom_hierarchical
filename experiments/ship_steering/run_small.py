@@ -16,7 +16,7 @@ from hierarchical import *
 if __name__ == '__main__':
     n_jobs = -1
 
-    how_many = 100
+    how_many = 10#0
     n_epochs = 25
     ep_per_epoch = 200
     ep_per_eval = 50

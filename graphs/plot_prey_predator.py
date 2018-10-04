@@ -6,9 +6,9 @@ base_dir = '../results/prey_predator'
 output_dir = '../out/prey_predator'
 mk_dir_recursive(output_dir)
 
-algs = ['B_GPOMDP',
-        'H_DQN_GPOMDP']#,
-        #'H_DoubleDQN_GPOMDP',
+algs = ['H_DQN_GPOMDP',
+        'H_DoubleDQN_GPOMDP',
+        'B_GPOMDP']
         #'D_DQN']
 
 colors = ['b', 'r', 'g', 'c', 'm']
@@ -29,16 +29,19 @@ for alg in algs:
     L_results[alg] = get_mean_and_confidence(L)
     
     # Jlow
-    #Jlow = np.load(base_dir + '/Jlow_' + alg + '.npy')
-    #print(alg, ' Jlow: ', Jlow.shape)
-    #Jlow_results[alg] = get_mean_and_confidence(Jlow)
+    if alg[0] == 'H' or alg[0] == 'B':
+        Jlow = np.load(base_dir + '/Jlow_' + alg + '.npy')
+        print(alg, ' Jlow: ', Jlow.shape)
+        Jlow_results[alg] = get_mean_and_confidence(Jlow)
 
 create_plot(algs, colors, J_results, 'J', legend=True,
             output_dir=output_dir, plot_name='J')
 create_plot(algs, colors, L_results, 'L', legend=False,
             output_dir=output_dir, plot_name='L')
-#create_plot(algs, colors, Jlow_results, 'Jlow', legend=False,
-#            output_dir=output_dir, plot_name='Jlow')
+
+algs_low = [a for a in algs if a[0] == 'H' or alg[0] == 'B']
+create_plot(algs_low, colors, Jlow_results, 'Jlow', legend=False,
+            output_dir=output_dir, plot_name='Jlow')
 
 plt.show()
 

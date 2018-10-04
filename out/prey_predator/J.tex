@@ -4,8 +4,8 @@
 \begin{axis}[
 height=\figureheight,
 legend cell align={left},
-legend entries={{B_GPOMDP},{H_DQN_GPOMDP}},
-legend style={at={(0.03,0.97)}, anchor=north west, draw=white!80.0!black},
+legend entries={{H_DQN_GPOMDP},{H_DoubleDQN_GPOMDP},{B_GPOMDP}},
+legend style={at={(0.91,0.5)}, anchor=east, draw=white!80.0!black},
 tick align=outside,
 tick pos=left,
 width=\figurewidth,
@@ -18,367 +18,467 @@ ymin=-562.671667735648, ymax=-221.337746787601
 ]
 \addlegendimage{no markers, blue}
 \addlegendimage{no markers, red}
-\path [draw=blue, semithick] (axis cs:0,-547.156489510737)
---(axis cs:0,-538.839263423371);
-
-\path [draw=blue, semithick] (axis cs:1,-520.112613325311)
---(axis cs:1,-495.67718420003);
-
-\path [draw=blue, semithick] (axis cs:2,-513.056089453563)
---(axis cs:2,-490.097568564832);
-
-\path [draw=blue, semithick] (axis cs:3,-514.611244704254)
---(axis cs:3,-493.693015346915);
-
-\path [draw=blue, semithick] (axis cs:4,-510.843389444372)
---(axis cs:4,-490.576345793583);
-
-\path [draw=blue, semithick] (axis cs:5,-509.705130871744)
---(axis cs:5,-490.75946546203);
-
-\path [draw=blue, semithick] (axis cs:6,-506.922603448924)
---(axis cs:6,-481.10155250309);
-
-\path [draw=blue, semithick] (axis cs:7,-504.265301633643)
---(axis cs:7,-481.171191091941);
-
-\path [draw=blue, semithick] (axis cs:8,-511.04397032908)
---(axis cs:8,-492.987073709008);
-
-\path [draw=blue, semithick] (axis cs:9,-511.770755906285)
---(axis cs:9,-487.633335118975);
-
-\path [draw=blue, semithick] (axis cs:10,-514.633411033161)
---(axis cs:10,-488.420292562062);
-
-\path [draw=blue, semithick] (axis cs:11,-511.915201208947)
---(axis cs:11,-488.11488467189);
-
-\path [draw=blue, semithick] (axis cs:12,-518.389644622331)
---(axis cs:12,-492.625372063929);
-
-\path [draw=blue, semithick] (axis cs:13,-515.790094376737)
---(axis cs:13,-493.342815160601);
-
-\path [draw=blue, semithick] (axis cs:14,-522.315843493599)
---(axis cs:14,-499.44852627953);
-
-\path [draw=blue, semithick] (axis cs:15,-519.207332128481)
---(axis cs:15,-502.289536360563);
-
-\path [draw=blue, semithick] (axis cs:16,-522.896004223989)
---(axis cs:16,-503.021882911799);
-
-\path [draw=blue, semithick] (axis cs:17,-523.106537175261)
---(axis cs:17,-505.685068972022);
-
-\path [draw=blue, semithick] (axis cs:18,-520.461262602107)
---(axis cs:18,-502.105461618097);
-
-\path [draw=blue, semithick] (axis cs:19,-518.25601681119)
---(axis cs:19,-500.51502649647);
-
-\path [draw=blue, semithick] (axis cs:20,-519.031877069264)
---(axis cs:20,-502.775322991646);
-
-\path [draw=blue, semithick] (axis cs:21,-517.032300350453)
---(axis cs:21,-498.584790706049);
-
-\path [draw=blue, semithick] (axis cs:22,-519.309262988157)
---(axis cs:22,-505.108810517306);
-
-\path [draw=blue, semithick] (axis cs:23,-518.543829244149)
---(axis cs:23,-500.82810979105);
-
-\path [draw=blue, semithick] (axis cs:24,-517.681128766687)
---(axis cs:24,-502.914654351451);
-
-\path [draw=blue, semithick] (axis cs:25,-521.684629321479)
---(axis cs:25,-505.855639917914);
-
-\path [draw=blue, semithick] (axis cs:26,-519.72038011723)
---(axis cs:26,-502.006824965172);
-
-\path [draw=blue, semithick] (axis cs:27,-521.842740006517)
---(axis cs:27,-505.561335037306);
-
-\path [draw=blue, semithick] (axis cs:28,-522.521376699863)
---(axis cs:28,-508.509519208245);
-
-\path [draw=blue, semithick] (axis cs:29,-526.947505223747)
---(axis cs:29,-511.725739488296);
-
-\path [draw=blue, semithick] (axis cs:30,-520.171315175727)
---(axis cs:30,-507.514400639958);
-
-\path [draw=blue, semithick] (axis cs:31,-521.660173875084)
---(axis cs:31,-506.480775806204);
-
-\path [draw=blue, semithick] (axis cs:32,-523.479784581536)
---(axis cs:32,-505.582524547623);
-
-\path [draw=blue, semithick] (axis cs:33,-523.274320552418)
---(axis cs:33,-509.870231339513);
-
-\path [draw=blue, semithick] (axis cs:34,-520.350234976525)
---(axis cs:34,-509.233768502607);
-
-\path [draw=blue, semithick] (axis cs:35,-527.051380718437)
---(axis cs:35,-509.91509675535);
-
-\path [draw=blue, semithick] (axis cs:36,-526.00529632692)
---(axis cs:36,-514.233969826732);
-
-\path [draw=blue, semithick] (axis cs:37,-524.169300496514)
---(axis cs:37,-511.018118991893);
-
-\path [draw=blue, semithick] (axis cs:38,-527.741643134047)
---(axis cs:38,-513.110560209575);
-
-\path [draw=blue, semithick] (axis cs:39,-528.217993163852)
---(axis cs:39,-513.969325274357);
-
-\path [draw=blue, semithick] (axis cs:40,-530.216883130335)
---(axis cs:40,-516.554271037763);
-
-\path [draw=blue, semithick] (axis cs:41,-529.822304356408)
---(axis cs:41,-516.144919428247);
-
-\path [draw=blue, semithick] (axis cs:42,-525.878831003575)
---(axis cs:42,-512.390100275075);
-
-\path [draw=blue, semithick] (axis cs:43,-528.272881242498)
---(axis cs:43,-512.612152461884);
-
-\path [draw=blue, semithick] (axis cs:44,-529.264950420006)
---(axis cs:44,-515.67525478948);
-
-\path [draw=blue, semithick] (axis cs:45,-529.419261350742)
---(axis cs:45,-514.372316063534);
-
-\path [draw=blue, semithick] (axis cs:46,-530.833080704066)
---(axis cs:46,-516.419908317887);
-
-\path [draw=blue, semithick] (axis cs:47,-527.731994862503)
---(axis cs:47,-513.889007519751);
-
-\path [draw=blue, semithick] (axis cs:48,-531.964309261543)
---(axis cs:48,-516.972079582067);
-
-\path [draw=blue, semithick] (axis cs:49,-529.18646556143)
---(axis cs:49,-517.500612106581);
-
-\path [draw=blue, semithick] (axis cs:50,-532.171394105482)
---(axis cs:50,-516.127774239766);
-
-\path [draw=red, semithick] (axis cs:0,-546.719335260862)
+\addlegendimage{no markers, green!50.0!black}
+\path [draw=blue, semithick] (axis cs:0,-546.719335260862)
 --(axis cs:0,-538.829156169549);
 
-\path [draw=red, semithick] (axis cs:1,-387.358968933325)
+\path [draw=blue, semithick] (axis cs:1,-387.358968933325)
 --(axis cs:1,-358.99201841276);
 
-\path [draw=red, semithick] (axis cs:2,-370.893135457642)
+\path [draw=blue, semithick] (axis cs:2,-370.893135457642)
 --(axis cs:2,-333.19494902589);
 
-\path [draw=red, semithick] (axis cs:3,-361.74212866435)
+\path [draw=blue, semithick] (axis cs:3,-361.74212866435)
 --(axis cs:3,-312.776593479109);
 
-\path [draw=red, semithick] (axis cs:4,-355.210684069181)
+\path [draw=blue, semithick] (axis cs:4,-355.210684069181)
 --(axis cs:4,-297.83782856251);
 
-\path [draw=red, semithick] (axis cs:5,-356.041026856327)
+\path [draw=blue, semithick] (axis cs:5,-356.041026856327)
 --(axis cs:5,-293.427376654599);
 
-\path [draw=red, semithick] (axis cs:6,-357.400882882873)
+\path [draw=blue, semithick] (axis cs:6,-357.400882882873)
 --(axis cs:6,-289.395200571186);
 
-\path [draw=red, semithick] (axis cs:7,-357.06204656252)
+\path [draw=blue, semithick] (axis cs:7,-357.06204656252)
 --(axis cs:7,-288.49112262128);
 
-\path [draw=red, semithick] (axis cs:8,-365.105995910347)
+\path [draw=blue, semithick] (axis cs:8,-365.105995910347)
 --(axis cs:8,-284.392049735633);
 
-\path [draw=red, semithick] (axis cs:9,-360.934317844113)
+\path [draw=blue, semithick] (axis cs:9,-360.934317844113)
 --(axis cs:9,-283.783726131212);
 
-\path [draw=red, semithick] (axis cs:10,-353.63535553487)
+\path [draw=blue, semithick] (axis cs:10,-353.63535553487)
 --(axis cs:10,-278.662968390554);
 
-\path [draw=red, semithick] (axis cs:11,-355.805102067308)
+\path [draw=blue, semithick] (axis cs:11,-355.805102067308)
 --(axis cs:11,-277.74100325307);
 
-\path [draw=red, semithick] (axis cs:12,-350.830239527402)
+\path [draw=blue, semithick] (axis cs:12,-350.830239527402)
 --(axis cs:12,-273.937853253638);
 
-\path [draw=red, semithick] (axis cs:13,-342.536010558893)
+\path [draw=blue, semithick] (axis cs:13,-342.536010558893)
 --(axis cs:13,-273.338098571009);
 
-\path [draw=red, semithick] (axis cs:14,-333.387950663735)
+\path [draw=blue, semithick] (axis cs:14,-333.387950663735)
 --(axis cs:14,-272.017858642249);
 
-\path [draw=red, semithick] (axis cs:15,-327.91685003933)
+\path [draw=blue, semithick] (axis cs:15,-327.91685003933)
 --(axis cs:15,-267.888685838011);
 
-\path [draw=red, semithick] (axis cs:16,-307.048277989407)
+\path [draw=blue, semithick] (axis cs:16,-307.048277989407)
 --(axis cs:16,-257.233294805972);
 
-\path [draw=red, semithick] (axis cs:17,-306.870236074713)
+\path [draw=blue, semithick] (axis cs:17,-306.870236074713)
 --(axis cs:17,-259.711099119018);
 
-\path [draw=red, semithick] (axis cs:18,-298.627917830415)
+\path [draw=blue, semithick] (axis cs:18,-298.627917830415)
 --(axis cs:18,-256.224134054939);
 
-\path [draw=red, semithick] (axis cs:19,-297.228476774558)
+\path [draw=blue, semithick] (axis cs:19,-297.228476774558)
 --(axis cs:19,-256.077365556979);
 
-\path [draw=red, semithick] (axis cs:20,-294.603778042922)
+\path [draw=blue, semithick] (axis cs:20,-294.603778042922)
 --(axis cs:20,-254.474046690614);
 
-\path [draw=red, semithick] (axis cs:21,-297.941997743443)
+\path [draw=blue, semithick] (axis cs:21,-297.941997743443)
 --(axis cs:21,-253.661436339639);
 
-\path [draw=red, semithick] (axis cs:22,-299.880818324878)
+\path [draw=blue, semithick] (axis cs:22,-299.880818324878)
 --(axis cs:22,-254.490779467004);
 
-\path [draw=red, semithick] (axis cs:23,-303.980677898755)
+\path [draw=blue, semithick] (axis cs:23,-303.980677898755)
 --(axis cs:23,-253.135047507072);
 
-\path [draw=red, semithick] (axis cs:24,-300.872951004176)
+\path [draw=blue, semithick] (axis cs:24,-300.872951004176)
 --(axis cs:24,-252.51011209217);
 
-\path [draw=red, semithick] (axis cs:25,-290.399164324521)
+\path [draw=blue, semithick] (axis cs:25,-290.399164324521)
 --(axis cs:25,-248.094370940418);
 
-\path [draw=red, semithick] (axis cs:26,-290.939418929975)
+\path [draw=blue, semithick] (axis cs:26,-290.939418929975)
 --(axis cs:26,-251.587556221606);
 
-\path [draw=red, semithick] (axis cs:27,-287.674619684245)
+\path [draw=blue, semithick] (axis cs:27,-287.674619684245)
 --(axis cs:27,-246.09973447629);
 
-\path [draw=red, semithick] (axis cs:28,-290.797555082306)
+\path [draw=blue, semithick] (axis cs:28,-290.797555082306)
 --(axis cs:28,-247.687234234653);
 
-\path [draw=red, semithick] (axis cs:29,-285.294126240774)
+\path [draw=blue, semithick] (axis cs:29,-285.294126240774)
 --(axis cs:29,-244.512404517991);
 
-\path [draw=red, semithick] (axis cs:30,-287.089058214462)
+\path [draw=blue, semithick] (axis cs:30,-287.089058214462)
 --(axis cs:30,-241.574305423397);
 
-\path [draw=red, semithick] (axis cs:31,-288.216497309587)
+\path [draw=blue, semithick] (axis cs:31,-288.216497309587)
 --(axis cs:31,-244.733952338409);
 
-\path [draw=red, semithick] (axis cs:32,-288.021169565123)
+\path [draw=blue, semithick] (axis cs:32,-288.021169565123)
 --(axis cs:32,-244.269465396471);
 
-\path [draw=red, semithick] (axis cs:33,-286.302632130436)
+\path [draw=blue, semithick] (axis cs:33,-286.302632130436)
 --(axis cs:33,-243.194453235063);
 
-\path [draw=red, semithick] (axis cs:34,-291.146819855956)
+\path [draw=blue, semithick] (axis cs:34,-291.146819855956)
 --(axis cs:34,-248.997459942252);
 
-\path [draw=red, semithick] (axis cs:35,-283.560556746602)
+\path [draw=blue, semithick] (axis cs:35,-283.560556746602)
 --(axis cs:35,-239.618407542096);
 
-\path [draw=red, semithick] (axis cs:36,-287.763935233051)
+\path [draw=blue, semithick] (axis cs:36,-287.763935233051)
 --(axis cs:36,-245.15246215333);
 
-\path [draw=red, semithick] (axis cs:37,-288.015831098193)
+\path [draw=blue, semithick] (axis cs:37,-288.015831098193)
 --(axis cs:37,-242.794921571318);
 
-\path [draw=red, semithick] (axis cs:38,-284.287423334813)
+\path [draw=blue, semithick] (axis cs:38,-284.287423334813)
 --(axis cs:38,-239.472731610709);
 
-\path [draw=red, semithick] (axis cs:39,-281.662485812932)
+\path [draw=blue, semithick] (axis cs:39,-281.662485812932)
 --(axis cs:39,-239.905425303979);
 
-\path [draw=red, semithick] (axis cs:40,-284.137766150897)
+\path [draw=blue, semithick] (axis cs:40,-284.137766150897)
 --(axis cs:40,-240.474631330116);
 
-\path [draw=red, semithick] (axis cs:41,-282.082218351775)
+\path [draw=blue, semithick] (axis cs:41,-282.082218351775)
 --(axis cs:41,-241.841181443554);
 
-\path [draw=red, semithick] (axis cs:42,-286.936927117779)
+\path [draw=blue, semithick] (axis cs:42,-286.936927117779)
 --(axis cs:42,-236.852925012512);
 
-\path [draw=red, semithick] (axis cs:43,-284.795508640337)
+\path [draw=blue, semithick] (axis cs:43,-284.795508640337)
 --(axis cs:43,-238.391861594308);
 
-\path [draw=red, semithick] (axis cs:44,-283.325346904091)
+\path [draw=blue, semithick] (axis cs:44,-283.325346904091)
 --(axis cs:44,-237.28619996398);
 
-\path [draw=red, semithick] (axis cs:45,-286.262773004432)
+\path [draw=blue, semithick] (axis cs:45,-286.262773004432)
 --(axis cs:45,-238.37429213394);
 
-\path [draw=red, semithick] (axis cs:46,-284.436179890037)
+\path [draw=blue, semithick] (axis cs:46,-284.436179890037)
 --(axis cs:46,-237.509816353288);
 
-\path [draw=red, semithick] (axis cs:47,-290.418824308189)
+\path [draw=blue, semithick] (axis cs:47,-290.418824308189)
 --(axis cs:47,-242.948266054005);
 
-\path [draw=red, semithick] (axis cs:48,-287.69336303063)
+\path [draw=blue, semithick] (axis cs:48,-287.69336303063)
 --(axis cs:48,-239.683687480587);
 
-\path [draw=red, semithick] (axis cs:49,-284.775830052904)
+\path [draw=blue, semithick] (axis cs:49,-284.775830052904)
 --(axis cs:49,-238.546211346635);
 
-\path [draw=red, semithick] (axis cs:50,-286.314470220283)
+\path [draw=blue, semithick] (axis cs:50,-286.314470220283)
 --(axis cs:50,-240.111767037402);
 
+\path [draw=red, semithick] (axis cs:0,-546.305604525245)
+--(axis cs:0,-538.370856426255);
+
+\path [draw=red, semithick] (axis cs:1,-386.972650204383)
+--(axis cs:1,-357.178517011113);
+
+\path [draw=red, semithick] (axis cs:2,-347.972891382953)
+--(axis cs:2,-327.577473708641);
+
+\path [draw=red, semithick] (axis cs:3,-339.158593585929)
+--(axis cs:3,-312.234238061755);
+
+\path [draw=red, semithick] (axis cs:4,-337.227276402761)
+--(axis cs:4,-306.07826833567);
+
+\path [draw=red, semithick] (axis cs:5,-324.690931156841)
+--(axis cs:5,-293.336454326085);
+
+\path [draw=red, semithick] (axis cs:6,-325.576334665549)
+--(axis cs:6,-283.608085675057);
+
+\path [draw=red, semithick] (axis cs:7,-323.871470949823)
+--(axis cs:7,-277.048272903736);
+
+\path [draw=red, semithick] (axis cs:8,-332.090814668192)
+--(axis cs:8,-279.735359110764);
+
+\path [draw=red, semithick] (axis cs:9,-320.4867548281)
+--(axis cs:9,-269.117256196251);
+
+\path [draw=red, semithick] (axis cs:10,-312.096615761429)
+--(axis cs:10,-266.057285298877);
+
+\path [draw=red, semithick] (axis cs:11,-309.870269691287)
+--(axis cs:11,-263.6735890059);
+
+\path [draw=red, semithick] (axis cs:12,-303.863394262924)
+--(axis cs:12,-258.894431287197);
+
+\path [draw=red, semithick] (axis cs:13,-290.388170257637)
+--(axis cs:13,-257.873934997711);
+
+\path [draw=red, semithick] (axis cs:14,-288.490518198513)
+--(axis cs:14,-260.801885980259);
+
+\path [draw=red, semithick] (axis cs:15,-278.078113653106)
+--(axis cs:15,-258.788450414077);
+
+\path [draw=red, semithick] (axis cs:16,-277.399978451024)
+--(axis cs:16,-258.996526252864);
+
+\path [draw=red, semithick] (axis cs:17,-274.775196498861)
+--(axis cs:17,-261.486890343971);
+
+\path [draw=red, semithick] (axis cs:18,-274.431128296901)
+--(axis cs:18,-259.261965256366);
+
+\path [draw=red, semithick] (axis cs:19,-271.281590648667)
+--(axis cs:19,-256.38822930467);
+
+\path [draw=red, semithick] (axis cs:20,-270.943108951014)
+--(axis cs:20,-255.799922184462);
+
+\path [draw=red, semithick] (axis cs:21,-266.10624766939)
+--(axis cs:21,-253.837802052988);
+
+\path [draw=red, semithick] (axis cs:22,-273.51496573197)
+--(axis cs:22,-258.129749042347);
+
+\path [draw=red, semithick] (axis cs:23,-274.79524877821)
+--(axis cs:23,-254.417085118357);
+
+\path [draw=red, semithick] (axis cs:24,-276.791406984908)
+--(axis cs:24,-253.699223714775);
+
+\path [draw=red, semithick] (axis cs:25,-280.732598779457)
+--(axis cs:25,-253.326629719157);
+
+\path [draw=red, semithick] (axis cs:26,-283.223954013869)
+--(axis cs:26,-250.583980422314);
+
+\path [draw=red, semithick] (axis cs:27,-284.991224769254)
+--(axis cs:27,-247.669458529429);
+
+\path [draw=red, semithick] (axis cs:28,-288.376811797492)
+--(axis cs:28,-249.542669978553);
+
+\path [draw=red, semithick] (axis cs:29,-290.923814052727)
+--(axis cs:29,-247.615495932329);
+
+\path [draw=red, semithick] (axis cs:30,-292.878003643181)
+--(axis cs:30,-247.559150867262);
+
+\path [draw=red, semithick] (axis cs:31,-297.250925827316)
+--(axis cs:31,-250.340872381596);
+
+\path [draw=red, semithick] (axis cs:32,-298.9774377537)
+--(axis cs:32,-249.119782964055);
+
+\path [draw=red, semithick] (axis cs:33,-299.645742408764)
+--(axis cs:33,-253.226134497934);
+
+\path [draw=red, semithick] (axis cs:34,-301.347570877643)
+--(axis cs:34,-252.616884678569);
+
+\path [draw=red, semithick] (axis cs:35,-308.685401857761)
+--(axis cs:35,-253.413735198158);
+
+\path [draw=red, semithick] (axis cs:36,-297.064428310079)
+--(axis cs:36,-249.859444251349);
+
+\path [draw=red, semithick] (axis cs:37,-294.270440830796)
+--(axis cs:37,-249.633085230545);
+
+\path [draw=red, semithick] (axis cs:38,-294.66564520545)
+--(axis cs:38,-250.11993802575);
+
+\path [draw=red, semithick] (axis cs:39,-301.960627310541)
+--(axis cs:39,-250.955978549283);
+
+\path [draw=red, semithick] (axis cs:40,-301.645787300601)
+--(axis cs:40,-251.828428948113);
+
+\path [draw=red, semithick] (axis cs:41,-299.25489561737)
+--(axis cs:41,-248.530390754338);
+
+\path [draw=red, semithick] (axis cs:42,-301.624113052524)
+--(axis cs:42,-251.310026829421);
+
+\path [draw=red, semithick] (axis cs:43,-290.703669150288)
+--(axis cs:43,-255.182091017986);
+
+\path [draw=red, semithick] (axis cs:44,-294.814786161531)
+--(axis cs:44,-254.281173866419);
+
+\path [draw=red, semithick] (axis cs:45,-290.037153652602)
+--(axis cs:45,-254.269411126867);
+
+\path [draw=red, semithick] (axis cs:46,-295.669148805622)
+--(axis cs:46,-253.829635912338);
+
+\path [draw=red, semithick] (axis cs:47,-293.088695288704)
+--(axis cs:47,-252.245779597178);
+
+\path [draw=red, semithick] (axis cs:48,-287.976044905554)
+--(axis cs:48,-252.088721874455);
+
+\path [draw=red, semithick] (axis cs:49,-288.346044759988)
+--(axis cs:49,-253.859619030684);
+
+\path [draw=red, semithick] (axis cs:50,-292.293370953159)
+--(axis cs:50,-256.533095829432);
+
+\path [draw=green!50.0!black, semithick] (axis cs:0,-547.156489510737)
+--(axis cs:0,-538.839263423371);
+
+\path [draw=green!50.0!black, semithick] (axis cs:1,-520.112613325311)
+--(axis cs:1,-495.67718420003);
+
+\path [draw=green!50.0!black, semithick] (axis cs:2,-513.056089453563)
+--(axis cs:2,-490.097568564832);
+
+\path [draw=green!50.0!black, semithick] (axis cs:3,-514.611244704254)
+--(axis cs:3,-493.693015346915);
+
+\path [draw=green!50.0!black, semithick] (axis cs:4,-510.843389444372)
+--(axis cs:4,-490.576345793583);
+
+\path [draw=green!50.0!black, semithick] (axis cs:5,-509.705130871744)
+--(axis cs:5,-490.75946546203);
+
+\path [draw=green!50.0!black, semithick] (axis cs:6,-506.922603448924)
+--(axis cs:6,-481.10155250309);
+
+\path [draw=green!50.0!black, semithick] (axis cs:7,-504.265301633643)
+--(axis cs:7,-481.171191091941);
+
+\path [draw=green!50.0!black, semithick] (axis cs:8,-511.04397032908)
+--(axis cs:8,-492.987073709008);
+
+\path [draw=green!50.0!black, semithick] (axis cs:9,-511.770755906285)
+--(axis cs:9,-487.633335118975);
+
+\path [draw=green!50.0!black, semithick] (axis cs:10,-514.633411033161)
+--(axis cs:10,-488.420292562062);
+
+\path [draw=green!50.0!black, semithick] (axis cs:11,-511.915201208947)
+--(axis cs:11,-488.11488467189);
+
+\path [draw=green!50.0!black, semithick] (axis cs:12,-518.389644622331)
+--(axis cs:12,-492.625372063929);
+
+\path [draw=green!50.0!black, semithick] (axis cs:13,-515.790094376737)
+--(axis cs:13,-493.342815160601);
+
+\path [draw=green!50.0!black, semithick] (axis cs:14,-522.315843493599)
+--(axis cs:14,-499.44852627953);
+
+\path [draw=green!50.0!black, semithick] (axis cs:15,-519.207332128481)
+--(axis cs:15,-502.289536360563);
+
+\path [draw=green!50.0!black, semithick] (axis cs:16,-522.896004223989)
+--(axis cs:16,-503.021882911799);
+
+\path [draw=green!50.0!black, semithick] (axis cs:17,-523.106537175261)
+--(axis cs:17,-505.685068972022);
+
+\path [draw=green!50.0!black, semithick] (axis cs:18,-520.461262602107)
+--(axis cs:18,-502.105461618097);
+
+\path [draw=green!50.0!black, semithick] (axis cs:19,-518.25601681119)
+--(axis cs:19,-500.51502649647);
+
+\path [draw=green!50.0!black, semithick] (axis cs:20,-519.031877069264)
+--(axis cs:20,-502.775322991646);
+
+\path [draw=green!50.0!black, semithick] (axis cs:21,-517.032300350453)
+--(axis cs:21,-498.584790706049);
+
+\path [draw=green!50.0!black, semithick] (axis cs:22,-519.309262988157)
+--(axis cs:22,-505.108810517306);
+
+\path [draw=green!50.0!black, semithick] (axis cs:23,-518.543829244149)
+--(axis cs:23,-500.82810979105);
+
+\path [draw=green!50.0!black, semithick] (axis cs:24,-517.681128766687)
+--(axis cs:24,-502.914654351451);
+
+\path [draw=green!50.0!black, semithick] (axis cs:25,-521.684629321479)
+--(axis cs:25,-505.855639917914);
+
+\path [draw=green!50.0!black, semithick] (axis cs:26,-519.72038011723)
+--(axis cs:26,-502.006824965172);
+
+\path [draw=green!50.0!black, semithick] (axis cs:27,-521.842740006517)
+--(axis cs:27,-505.561335037306);
+
+\path [draw=green!50.0!black, semithick] (axis cs:28,-522.521376699863)
+--(axis cs:28,-508.509519208245);
+
+\path [draw=green!50.0!black, semithick] (axis cs:29,-526.947505223747)
+--(axis cs:29,-511.725739488296);
+
+\path [draw=green!50.0!black, semithick] (axis cs:30,-520.171315175727)
+--(axis cs:30,-507.514400639958);
+
+\path [draw=green!50.0!black, semithick] (axis cs:31,-521.660173875084)
+--(axis cs:31,-506.480775806204);
+
+\path [draw=green!50.0!black, semithick] (axis cs:32,-523.479784581536)
+--(axis cs:32,-505.582524547623);
+
+\path [draw=green!50.0!black, semithick] (axis cs:33,-523.274320552418)
+--(axis cs:33,-509.870231339513);
+
+\path [draw=green!50.0!black, semithick] (axis cs:34,-520.350234976525)
+--(axis cs:34,-509.233768502607);
+
+\path [draw=green!50.0!black, semithick] (axis cs:35,-527.051380718437)
+--(axis cs:35,-509.91509675535);
+
+\path [draw=green!50.0!black, semithick] (axis cs:36,-526.00529632692)
+--(axis cs:36,-514.233969826732);
+
+\path [draw=green!50.0!black, semithick] (axis cs:37,-524.169300496514)
+--(axis cs:37,-511.018118991893);
+
+\path [draw=green!50.0!black, semithick] (axis cs:38,-527.741643134047)
+--(axis cs:38,-513.110560209575);
+
+\path [draw=green!50.0!black, semithick] (axis cs:39,-528.217993163852)
+--(axis cs:39,-513.969325274357);
+
+\path [draw=green!50.0!black, semithick] (axis cs:40,-530.216883130335)
+--(axis cs:40,-516.554271037763);
+
+\path [draw=green!50.0!black, semithick] (axis cs:41,-529.822304356408)
+--(axis cs:41,-516.144919428247);
+
+\path [draw=green!50.0!black, semithick] (axis cs:42,-525.878831003575)
+--(axis cs:42,-512.390100275075);
+
+\path [draw=green!50.0!black, semithick] (axis cs:43,-528.272881242498)
+--(axis cs:43,-512.612152461884);
+
+\path [draw=green!50.0!black, semithick] (axis cs:44,-529.264950420006)
+--(axis cs:44,-515.67525478948);
+
+\path [draw=green!50.0!black, semithick] (axis cs:45,-529.419261350742)
+--(axis cs:45,-514.372316063534);
+
+\path [draw=green!50.0!black, semithick] (axis cs:46,-530.833080704066)
+--(axis cs:46,-516.419908317887);
+
+\path [draw=green!50.0!black, semithick] (axis cs:47,-527.731994862503)
+--(axis cs:47,-513.889007519751);
+
+\path [draw=green!50.0!black, semithick] (axis cs:48,-531.964309261543)
+--(axis cs:48,-516.972079582067);
+
+\path [draw=green!50.0!black, semithick] (axis cs:49,-529.18646556143)
+--(axis cs:49,-517.500612106581);
+
+\path [draw=green!50.0!black, semithick] (axis cs:50,-532.171394105482)
+--(axis cs:50,-516.127774239766);
+
 \addplot [semithick, blue, forget plot]
-table [row sep=\\]{%
-0	-542.997876467054 \\
-1	-507.894898762671 \\
-2	-501.576829009197 \\
-3	-504.152130025584 \\
-4	-500.709867618977 \\
-5	-500.232298166887 \\
-6	-494.012077976007 \\
-7	-492.718246362792 \\
-8	-502.015522019044 \\
-9	-499.70204551263 \\
-10	-501.526851797612 \\
-11	-500.015042940419 \\
-12	-505.50750834313 \\
-13	-504.566454768669 \\
-14	-510.882184886565 \\
-15	-510.748434244522 \\
-16	-512.958943567894 \\
-17	-514.395803073642 \\
-18	-511.283362110102 \\
-19	-509.38552165383 \\
-20	-510.903600030455 \\
-21	-507.808545528251 \\
-22	-512.209036752731 \\
-23	-509.685969517599 \\
-24	-510.297891559069 \\
-25	-513.770134619696 \\
-26	-510.863602541201 \\
-27	-513.702037521912 \\
-28	-515.515447954054 \\
-29	-519.336622356022 \\
-30	-513.842857907842 \\
-31	-514.070474840644 \\
-32	-514.53115456458 \\
-33	-516.572275945966 \\
-34	-514.792001739566 \\
-35	-518.483238736893 \\
-36	-520.119633076826 \\
-37	-517.593709744204 \\
-38	-520.426101671811 \\
-39	-521.093659219105 \\
-40	-523.385577084049 \\
-41	-522.983611892327 \\
-42	-519.134465639325 \\
-43	-520.442516852191 \\
-44	-522.470102604743 \\
-45	-521.895788707138 \\
-46	-523.626494510976 \\
-47	-520.810501191127 \\
-48	-524.468194421805 \\
-49	-523.343538834005 \\
-50	-524.149584172624 \\
-};
-\addplot [semithick, red, forget plot]
 table [row sep=\\]{%
 0	-542.774245715205 \\
 1	-373.175493673042 \\
@@ -431,6 +531,114 @@ table [row sep=\\]{%
 48	-263.688525255609 \\
 49	-261.661020699769 \\
 50	-263.213118628842 \\
+};
+\addplot [semithick, red, forget plot]
+table [row sep=\\]{%
+0	-542.33823047575 \\
+1	-372.075583607748 \\
+2	-337.775182545797 \\
+3	-325.696415823842 \\
+4	-321.652772369215 \\
+5	-309.013692741463 \\
+6	-304.592210170303 \\
+7	-300.459871926779 \\
+8	-305.913086889478 \\
+9	-294.802005512175 \\
+10	-289.076950530153 \\
+11	-286.771929348593 \\
+12	-281.378912775061 \\
+13	-274.131052627674 \\
+14	-274.646202089386 \\
+15	-268.433282033591 \\
+16	-268.198252351944 \\
+17	-268.131043421416 \\
+18	-266.846546776633 \\
+19	-263.834909976669 \\
+20	-263.371515567738 \\
+21	-259.972024861189 \\
+22	-265.822357387159 \\
+23	-264.606166948284 \\
+24	-265.245315349842 \\
+25	-267.029614249307 \\
+26	-266.903967218091 \\
+27	-266.330341649342 \\
+28	-268.959740888022 \\
+29	-269.269654992528 \\
+30	-270.218577255221 \\
+31	-273.795899104456 \\
+32	-274.048610358877 \\
+33	-276.435938453349 \\
+34	-276.982227778106 \\
+35	-281.04956852796 \\
+36	-273.461936280714 \\
+37	-271.951763030671 \\
+38	-272.3927916156 \\
+39	-276.458302929912 \\
+40	-276.737108124357 \\
+41	-273.892643185854 \\
+42	-276.467069940973 \\
+43	-272.942880084137 \\
+44	-274.547980013975 \\
+45	-272.153282389735 \\
+46	-274.74939235898 \\
+47	-272.667237442941 \\
+48	-270.032383390004 \\
+49	-271.102831895336 \\
+50	-274.413233391295 \\
+};
+\addplot [semithick, green!50.0!black, forget plot]
+table [row sep=\\]{%
+0	-542.997876467054 \\
+1	-507.894898762671 \\
+2	-501.576829009197 \\
+3	-504.152130025584 \\
+4	-500.709867618977 \\
+5	-500.232298166887 \\
+6	-494.012077976007 \\
+7	-492.718246362792 \\
+8	-502.015522019044 \\
+9	-499.70204551263 \\
+10	-501.526851797612 \\
+11	-500.015042940419 \\
+12	-505.50750834313 \\
+13	-504.566454768669 \\
+14	-510.882184886565 \\
+15	-510.748434244522 \\
+16	-512.958943567894 \\
+17	-514.395803073642 \\
+18	-511.283362110102 \\
+19	-509.38552165383 \\
+20	-510.903600030455 \\
+21	-507.808545528251 \\
+22	-512.209036752731 \\
+23	-509.685969517599 \\
+24	-510.297891559069 \\
+25	-513.770134619696 \\
+26	-510.863602541201 \\
+27	-513.702037521912 \\
+28	-515.515447954054 \\
+29	-519.336622356022 \\
+30	-513.842857907842 \\
+31	-514.070474840644 \\
+32	-514.53115456458 \\
+33	-516.572275945966 \\
+34	-514.792001739566 \\
+35	-518.483238736893 \\
+36	-520.119633076826 \\
+37	-517.593709744204 \\
+38	-520.426101671811 \\
+39	-521.093659219105 \\
+40	-523.385577084049 \\
+41	-522.983611892327 \\
+42	-519.134465639325 \\
+43	-520.442516852191 \\
+44	-522.470102604743 \\
+45	-521.895788707138 \\
+46	-523.626494510976 \\
+47	-520.810501191127 \\
+48	-524.468194421805 \\
+49	-523.343538834005 \\
+50	-524.149584172624 \\
 };
 \end{axis}
 
